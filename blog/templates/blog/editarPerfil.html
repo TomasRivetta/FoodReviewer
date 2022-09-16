@@ -1,0 +1,60 @@
+{% extends "blog/padre.html" %}
+
+
+
+{% load static %}
+
+
+{% block header %}   
+<header class="masthead" id="editPerfil">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="mb-5">Editar perfil de {{ user }}</h1>
+                    
+                    <span class="subheading">Modifique sus datos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<style >
+    #editPerfil{
+        background-image: url("{% static '/blog/assets/img/acerca-de-foto.jpg' %}");
+    }
+</style>
+
+{% endblock %}  
+
+{% block contenido %}
+
+<h1>{{ mensaje }}</h1>
+
+<div  class="col-lg-6 mb-5" style="margin-left: auto; margin-right: auto;">
+    <div class="card h-100 shadow border-0">
+        <div class="card-body p-4">
+            
+            <h2>-EDITAR PERFIL-</h2>
+            <hr>
+            <form action="{% url 'editarPerfil' %}" method="POST" class="form-edit"> {% csrf_token %}    
+                
+                {{form.as_table}}
+                
+                <br>
+
+                <a class="form-control btn btn-outline-secondary" href="{% url 'agregarAvatar' %}">Agregar Avatar</a>
+                
+                <br>
+                <br>
+
+                <button type="submit" class="form-control btn btn-primary" value="enviar">Guardar cambios</button>
+
+            </form>
+            
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

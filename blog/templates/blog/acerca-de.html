@@ -1,0 +1,43 @@
+{% extends "blog/padre.html" %}
+
+{% load static %}
+
+
+{% block header %}
+<header class="masthead" id="borde">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="mb-5">Acerca De...</h1>
+                    <span class="subheading">El equipo de Food Review</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    #borde{
+        background-image: url("{% static '/blog/assets/img/acerca-de-foto.jpg' %}");
+    }
+</style>
+{% endblock %}
+
+{% block contenido %}
+<div class="separador-borde"> 
+    <a href="https://ar.linkedin.com/in/tomasrivetta-fullstack" target="_blank"> <h2 >Tomas Rivetta</h2> </a>
+    <p>
+        Tengo 19 años, actualmente me estoy desarrollando como Full Stack Developer en el Programa ONE y
+        estoy cursando en CoderHouse el curso de Python con Django.En mis tiempos libres, practico programación💻 
+        realizando mini proyectos para poder lograr reforzar lo aprendido, amo el futbol⚽ deporte que practico actualmente, 
+        me encanta leer libros📚 sobre filosofía y los fines de semana salgo a caminar y practico Cartomagia🃏
+    </p>
+    <a href="https://www.linkedin.com/in/sebastian-rodriguez-lizarraga/" target="_blank"> <h2 >Sebastian Rodriguez Lizarraga</h2> </a>
+    <p>Estudiante de Ciencias de la computación en UBA, tengo 20 años. Quisiera seguir aprendiendo
+        y metiendome en sistemas que es algo que me encanta, hace 2 años comencé a hacer sitios web en WordPress y
+        me meti al curso de coder porque queria aprender a crear un sitio desde cero usando
+        python y django. En mis tiempos libres me gusta escuchar música.
+    </p>
+</div>  
+{% endblock %}

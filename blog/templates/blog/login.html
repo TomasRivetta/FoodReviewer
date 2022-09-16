@@ -1,0 +1,77 @@
+{% extends "blog/padre.html" %} 
+
+{% load static %}
+
+{% block header %}   
+<header class="masthead" id="login">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="mb-5">Iniciar sesion..</h1>
+                    
+                    <span class="subheading">Accedé a tu cuenta y hacete foodie!👇</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<style >
+    #login{
+        background-image: url("{% static '/blog/assets/img/fondo-login.jpg' %}");
+    }
+</style>
+
+{% endblock %}  
+
+
+{% block contenido %}
+
+<h2> {{ mensaje }} </h2>
+
+<!--
+<div class="col-lg-3 mb-5" style="margin-left: auto; margin-right: auto;">
+    <div class="card h-100 shadow border-0">            
+        <div class="card-body p-4">
+            <h1>- Iniciar Sesion -</h1>
+            <hr>
+            <form enctype="multipart/form-data" action="" method="POST">
+                {% csrf_token %}
+                
+                    <table style="margin-right: 25px;">
+                
+                        {{form.as_table}}
+                
+                    </table>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                
+                </form>                                                 
+        </div>                                
+    </div>
+</div>
+-->
+
+
+<div  class="col-lg-6 mb-5" style="margin-left: auto; margin-right: auto;">
+    <div class="card h-100 shadow border-0">
+        <div class="card-body p-4">
+            <h2>-INICIAR SESION-</h2>
+            <hr>
+            <form action="{% url 'login' %}" method="POST" id="form-log"> {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-success">Iniciar sesion</button>
+
+            </form>
+            <br>
+            <button class="btn btn-primary"><a href="{% url 'register' %}">Registrarse</a></button>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
