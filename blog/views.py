@@ -4,8 +4,8 @@ from blog.forms import UserRegisterForm, LoginForm, UserEditForm, AvatarForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Avatar
-
+from .models import Avatar, Posteo
+from .forms import PosteoForm
 
 def inicio(request):
     return render(request,"blog/inicio.html",{'imagen':obtenerAvatar(request)})
@@ -14,7 +14,8 @@ def nosotros(request):
     return render(request, "blog/acerca-de.html",{'imagen':obtenerAvatar(request)})
 
 def blog(request):
-    return render(request, "blog/blog.html",{'imagen':obtenerAvatar(request)})
+    posteos = Posteo.objects.all().order_by('-id')
+    return render(request, "blog/blog.html",{'posteos':posteos})
 
 ####### LOGIN #######
 def login_request(request):
@@ -34,7 +35,7 @@ def login_request(request):
             return render(request, "blog/login.html", {'form':form, "mensaje":"FORMULARIO INVALIDO"})
     else:
         form=AuthenticationForm()
-        return render(request, "blog/login.html", {'form':form})
+        return render(request, "blog/login.html", {'form':form,"imagen":obtenerAvatar(request)})
 
 
 ####### REGISTRAR #######
@@ -49,7 +50,7 @@ def register(request):
             return render(request, 'blog/inicio.html', {'mensaje':f"Usuario { username } creado"})
     else:
         form = UserRegisterForm()
-    return render(request, 'blog/register.html', {'form':form})
+    return render(request, 'blog/register.html', {'form':form,"imagen":obtenerAvatar(request)})
 
 
 ######## LOGOUT ##########
@@ -87,7 +88,7 @@ def obtenerAvatar(request):
     if len(lista)!=0:
         imagen=lista[0].imagen.url
     else:
-        imagen=""
+        imagen= ""
     return imagen
 
 @login_required
@@ -104,6 +105,29 @@ def agregarAvatar(request):
     else:
         formulario=AvatarForm()
     return render(request, 'blog/agregarAvatar.html', {'form':formulario, 'usuario':request.user, "imagen":obtenerAvatar(request)})
+
+@login_required
+def misPublicaciones(request):
+    posteos = Posteo.objects.filter(autor=request.user)
+    return render(request, 'blog/misPublicaciones.html',{"posteos":posteos,"imagen":obtenerAvatar(request)})
+
+
+@login_required
+def subir_post(request):
+    posteo = Posteo()
+
+    if request.method  == "POST":
+        form = PosteoForm(request.POST, instance= posteo)
+        if form.is_valid():
+            form.save()
+
+            return redirect('blog')
+    else:
+        form = PosteoForm(instance = posteo) 
+
+    return render(request,'blog/crearPublicacion.html', {'posteo':posteo, 'form':form,"imagen":obtenerAvatar(request)})        
+
+
 
 '''
 def login_manual(request):
