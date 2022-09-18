@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Avatar, Posteo
 from .forms import PosteoForm
 
+from django.views.generic.detail import DetailView
+from django.urls import reverse_lazy
+
 def inicio(request):
     return render(request,"blog/inicio.html",{'imagen':obtenerAvatar(request)})
 
@@ -110,6 +113,12 @@ def agregarAvatar(request):
 def misPublicaciones(request):
     posteos = Posteo.objects.filter(autor=request.user)
     return render(request, 'blog/misPublicaciones.html',{"posteos":posteos,"imagen":obtenerAvatar(request)})
+
+
+class verPublicacion(DetailView):
+
+    model = Posteo
+    template_name = "blog/verPublicacion.html"  
 
 
 @login_required
