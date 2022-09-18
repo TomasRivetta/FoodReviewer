@@ -11,6 +11,8 @@ urlpatterns = [
     path('editarPerfil/agregarAvatar', agregarAvatar, name ='agregarAvatar'),
     path('register/', register,name="register"),
     path('logout/', LogoutView.as_view(template_name='blog/logout.html'), name="logout"),
+    path('misPublicaciones/', misPublicaciones, name ='misPublicaciones'),
+    path('subir_post/', subir_post, name ='subir_post'),
     path('blog/', blog,name="blog"),
     path("",inicio,name="inicio"),
 ]
