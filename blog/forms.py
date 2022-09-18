@@ -2,6 +2,9 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.forms import ModelForm
+from .models import Posteo
+
 
 class UserRegisterForm(UserCreationForm):
 
@@ -63,3 +66,11 @@ class UserEditForm(UserCreationForm):
 
 class AvatarForm(forms.Form):
     imagen = forms.ImageField(label="Imagen")
+
+
+
+class PosteoForm(ModelForm):
+
+    class Meta:
+        model = Posteo
+        fields = '__all__' 
