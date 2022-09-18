@@ -23,14 +23,37 @@
     </style>
 {% endblock %}  
 
+
 {% block contenido %}
+{% if posteos %}
+    
+        
+<div class="row" style="margin-left:20px;">
+    {% for Posteo in posteos %}
+    <div class="col-lg-3 mb-3">
+        <div class="card border-dark mb-4" style="width: 18rem;">
+            <img src="{{ Posteo.imagen.url | safe }}" class="card-img-top" style="max-width:299px; height: 200px;">
+            {% if Posteo.imagen %}
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"> {{ Posteo.titulo }} </h5>
+                <h6 class="post-subtitle"> {{ Posteo.descripcion }}</h6>
+                <p class="card-text" style="font-size: 10px;"> {{ Posteo.contenido | safe | slice:160 }}...</p>
+                <p class="post-meta"> Escrito por <strong>{{ Posteo.autor }}</strong>, el
+                {{ Posteo.fecha_creacion }}</p>
+                <a href="#" class="btn btn-primary" style="text-align: center;">Ver mas</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <hr>
+</div>
 
-<h1>FUTUROS POSTEOS...</h1>
+{% else %}
+        <h1>No se crearon Post</h1>
+        <h2>Se el primero en compartir tu experiencia</h2>
+{% endif %}
 
-{% for publi in publicaciones %}
-
-    <h4></h4>
-
-{% endfor %}
 
 {% endblock %}
+

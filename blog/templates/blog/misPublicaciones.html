@@ -1,0 +1,67 @@
+{% extends "blog/padre.html" %}
+
+{% load static %}
+
+
+{% block header %}
+<header class="masthead" id="borde">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="mb-5">Mis posteos..</h1>
+                    <span class="subheading">Aqui podras ver todos tus posteos publicados</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    #borde{
+        background-image: url("{% static '/blog/assets/img/acerca-de-foto.jpg' %}");
+    }
+</style>
+{% endblock %}
+
+
+{% block contenido %}
+
+{% if posteos %}
+<div class="row" style="margin-left:20px;">
+    {% for Posteo in posteos %}
+    <div class="col-lg-3 mb-5">
+        <div class="card border-dark mb-3" style="width: 18rem;">
+            {% if Posteo.image %}
+                <img src="{{ Posteo.imagen.url | safe }}" class="card-img-top" style="max-width:299px; height: 200px;">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"> {{ Posteo.titulo }} </h5>
+                <h6 class="post-subtitle"> {{ Posteo.descripcion }}</h6>
+                <p class="card-text"> {{ Posteo.contenido | safe | slice:30 }}</p>
+                <p class="post-meta"> Escrito por <strong>{{ Posteo.autor }}</strong>, el
+                {{ Posteo.fecha_creacion }}</p>
+                
+                <a href="#" class="btn btn-primary">Ver</a>
+                <a href="#" class="btn btn-primary">Editar Post</a>
+                <a href="#" class="btn btn-primary">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <hr>
+</div>
+
+{% else %}
+        <h1 class="mensajePrincipal">No creaste ningun Post😢</h1>
+        <h2 class="mensajeSecundario">Compartile a la comunidad tu experiencia FOOD🙌!!</h2>
+{% endif %}
+
+<style>
+    .mensajePrincipal,.mensajeSecundario{
+        text-align: center;
+    }
+</style>
+
+
+{% endblock %}
