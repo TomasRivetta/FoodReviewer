@@ -18,7 +18,7 @@ def nosotros(request):
 
 def blog(request):
     posteos = Posteo.objects.all().order_by('-id')
-    return render(request, "blog/blog.html",{'posteos':posteos})
+    return render(request, "blog/blog.html",{'posteos':posteos,'imagen':obtenerAvatar(request)})
 
 ####### LOGIN #######
 def login_request(request):

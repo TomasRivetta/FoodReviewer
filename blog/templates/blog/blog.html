@@ -41,7 +41,7 @@
                 <p class="card-text" style="font-size: 10px;"> {{ Posteo.contenido | safe | slice:160 }}...</p>
                 <p class="post-meta"> Escrito por <strong>{{ Posteo.autor }}</strong>, el
                 {{ Posteo.fecha_creacion }}</p>
-                <a href="#" class="btn btn-primary" style="text-align: center;">Ver mas</a>
+                <a href="{% url 'verPublicacion' Posteo.id %}" class="btn btn-primary" style="margin-left: 27%;">Ver mas</a>
             </div>
         </div>
     </div>
