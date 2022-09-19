@@ -111,7 +111,7 @@ def agregarAvatar(request):
 
 @login_required
 def misPublicaciones(request):
-    posteos = Posteo.objects.filter(autor=request.user)
+    posteos = Posteo.objects.filter(autor=request.user).order_by('-id')
     return render(request, 'blog/misPublicaciones.html',{"posteos":posteos,"imagen":obtenerAvatar(request)})
 
 
@@ -120,22 +120,48 @@ class verPublicacion(DetailView):
     model = Posteo
     template_name = "blog/verPublicacion.html"  
 
-
 @login_required
 def subir_post(request):
-    posteo = Posteo()
-
+    
     if request.method  == "POST":
-        form = PosteoForm(request.POST, instance= posteo)
+        form = PosteoForm(request.POST,request.FILES)
         if form.is_valid():
-            form.save()
+
+            informacion = form.cleaned_data
+
+            posteo = Posteo(titulo=informacion['titulo'],descripcion=informacion['descripcion'],contenido=informacion['contenido'],imagen=informacion['imagen'],autor=request.user)
+
+            posteo.save()
 
             return redirect('blog')
     else:
-        form = PosteoForm(instance = posteo) 
+        form = PosteoForm() 
+        return render(request,'blog/crearPublicacion.html', {'form':form,"imagen":obtenerAvatar(request)}) 
 
-    return render(request,'blog/crearPublicacion.html', {'posteo':posteo, 'form':form,"imagen":obtenerAvatar(request)})        
+@login_required
+def editarPublicacion(request, pk):
+    posteos = Posteo.objects.get(id=pk)
+    if request.method=="POST":
+        form = PosteoForm(request.POST,request.FILES)
+        if form.is_valid():
 
+            informacion = form.cleaned_data
+            posteos.titulo=informacion["titulo"]
+            posteos.descripcion=informacion["descripcion"]
+            posteos.contenido=informacion["contenido"]
+            posteos.imagen=informacion["imagen"]
+
+            posteos.save()
+            return redirect("misPublicaciones")
+    else:
+        form= PosteoForm(initial={"titulo":posteos.titulo, "descripcion":posteos.descripcion, "contenido":posteos.contenido})
+        return render(request, "blog/editarPublicacion.html",{"form":form, "titulo":posteos.titulo, "id":posteos.id,"imagen":obtenerAvatar(request)})
+
+@login_required
+def eliminarPublicacion(request, pk):
+    posteos = Posteo.objects.get(id=pk);
+    posteos.delete()
+    return redirect("misPublicaciones")
 
 
 '''
@@ -147,4 +173,5 @@ def login_manual(request):
     else:
         form = LoginForm()
     return render(request, "blog/login.html", {'form':form})
-'''
+
+'''       

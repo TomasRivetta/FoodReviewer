@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.forms import ModelForm
 from .models import Posteo
+from ckeditor.fields import RichTextFormField
 
 
 class UserRegisterForm(UserCreationForm):
@@ -68,8 +69,12 @@ class AvatarForm(forms.Form):
     imagen = forms.ImageField(label="Imagen")
 
 
+class PosteoForm(forms.Form):
 
-class PosteoForm(ModelForm):
+    titulo = forms.CharField(label='Titulo')
+    descripcion = forms.CharField(label='Descripcion')
+    contenido = RichTextFormField()
+    imagen = forms.ImageField(allow_empty_file=True)
 
     class Meta:
         model = Posteo

@@ -18,7 +18,7 @@ class Posteo(models.Model):
     titulo = models.CharField('Titulo', max_length=255, blank = False,null=False)
     descripcion = models.CharField('Descripcion', max_length=120, blank = False,null=False)
 
-    contenido = RichTextUploadingField(blank=True,null=True)
+    contenido = RichTextField(blank=True,null=True)
 
     imagen = models.ImageField(blank=False,null=True, upload_to="imgposts")
     
@@ -29,7 +29,7 @@ class Posteo(models.Model):
         verbose_name_plural = 'Posteos'
 
     def __str__(self):
-        return(self.titulo , self.autor)
+        return(self.titulo)
 
 class Avatar(models.Model):   
     user = models.ForeignKey(User, on_delete= models.CASCADE)

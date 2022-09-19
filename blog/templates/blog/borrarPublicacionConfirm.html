@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block contenido %}
-<h1>FORMULARIO POSTEO</h1>
+<h1>FORMULARIO</h1>
 <form method="POST"> {% csrf_token %}
     <p>estas seguro que deseas borrar el posteo "{{ object }}"?</p>
     <input type="submit" value="Si">

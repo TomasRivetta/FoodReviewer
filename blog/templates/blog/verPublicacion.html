@@ -9,8 +9,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1 class="mb-5">Publicacion {{ posteo.titulo }}..</h1>
-                    <span class="subheading">Aqui podras ver todos tus posteos publicados</span>
+                    <h1 class="mb-5">{{ posteo.titulo }}..</h1>
                 </div>
             </div>
         </div>
@@ -27,18 +26,26 @@
 
 {% block contenido %}
 
-
+<div>
 {% if posteo.imagen %}
-            <img src="{{ posteo.imagen.url | safe }}" class="card-img-top" style="max-width:800px; height: 400px;">
+            <img src="{{ posteo.imagen.url | safe }}" class="img-fluid" style="max-width:400px; height: 200px; margin-left: 37%;">
 {% endif %}
-            <h5 class="card-title"> {{ posteo.titulo }} </h5>
-            <h6 class="post-subtitle"> {{ posteo.descripcion }}</h6>
-            <p class="card-text"> {{ posteo.contenido | safe }}</p>
-            <p class="post-meta"> Escrito por <strong><i>   {{ posteo.autor }}</i></strong>, el
-            {{ posteo.fecha_creacion }}</p>  
-            <a href="#" class="btn btn-primary">Editar Post</a>
-            <a href="#" class="btn btn-primary">Eliminar</a>
+</div>
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
 
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1 class="text-center"> {{ posteo.titulo }} </h1>
+                <h3 class="text-center"> {{ posteo.descripcion }}</h6>
+                <p class=""> {{ posteo.contenido | safe }}</p>
+                <p class=""> <em>Escrito por <strong><i>{{ posteo.autor }}</i></strong>, el
+                {{ posteo.fecha_creacion }}</em></p>
+            </div>  
+
+        </div>
+    </div>
+</article>
 <style>
     .mensajePrincipal,.mensajeSecundario{
         text-align: center;

@@ -1,28 +1,26 @@
 {% extends "blog/padre.html" %}
-<!-- 
-<script type = "text/javascript" src="{% url static 'ckeditor/ckeditor-init.js' %}"></script> 
-<script type= "text/javascript" src="{% url static 'ckeditor/ckeditor.js' %}"> </script>
--->
+
+
 
 {% load static %}
 
 
 {% block header %}   
-<header class="masthead" id="register">
+<header class="masthead" id="editPerfil">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1 class="mb-5">Crear Posteo...</h1>
+                    <h1 class="mb-5">Editar {{ titulo }}</h1>
                     
-                    <span class="subheading">crea un posteo y comentale a los demas tus gustos!</span>
+                    <span class="subheading">Modifique los datos de la publicacion</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 <style >
-    #register{
+    #editPerfil{
         background-image: url("{% static '/blog/assets/img/acerca-de-foto.jpg' %}");
     }
 </style>
@@ -37,19 +35,20 @@
     <div class="card h-100 shadow border-0">
         <div class="card-body p-4">
             
-            <h2>-Crear Publicacion-</h2>
+            <h2>-EDITAR PUBLICACION-</h2>
             <hr>
-            <form action="{% url 'subir_post' %}" method="POST" class="form-regis" enctype="multipart/form-data"> {% csrf_token %}
+            
+            <form enctype="multipart/form-data" action="" method="POST" class="form-edit"> {% csrf_token %}    
                 
-
-                {{ form.media }}
-                {{ form.as_table }}
-
+                {{form.media}}
+                {{form.as_table}}
                 <br>
                 <br>
-                <button type="submit" class="form-control btn btn-success" value="enviar">Crear Posteo</button>
-                
+
+                <button type="submit" class="form-control btn btn-primary" value="enviar">Guardar cambios</button>
+
             </form>
+            
 
         </div>
 
