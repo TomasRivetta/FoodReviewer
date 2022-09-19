@@ -13,8 +13,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1 class="mb-5">Crear Posteo...</h1>
-                    
+                    <h2 class="mb-4">Crear Posteo...</h2>
                     <span class="subheading">crea un posteo y comentale a los demas tus gustos!</span>
                 </div>
             </div>
@@ -33,20 +32,19 @@
 
 <h1>{{ mensaje }}</h1>
 
-<div  class="col-lg-6 mb-5" style="margin-left: auto; margin-right: auto;">
+<div  class="col-lg-6 mb-5" style="margin-left: 20%; width: 60%">
     <div class="card h-100 shadow border-0">
         <div class="card-body p-4">
             
             <h2>-Crear Publicacion-</h2>
             <hr>
+
             <form action="{% url 'subir_post' %}" method="POST" class="form-regis" enctype="multipart/form-data"> {% csrf_token %}
                 
-
                 {{ form.media }}
-                {{ form.as_table }}
-
+                {{ form.as_p }}
                 <br>
-                <br>
+                
                 <button type="submit" class="form-control btn btn-success" value="enviar">Crear Posteo</button>
                 
             </form>

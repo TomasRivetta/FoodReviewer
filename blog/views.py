@@ -164,6 +164,7 @@ def eliminarPublicacion(request, pk):
     return redirect("misPublicaciones")
 
 
+
 '''
 def login_manual(request):
     if request.method == "POST":
