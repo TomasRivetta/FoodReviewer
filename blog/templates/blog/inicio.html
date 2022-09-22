@@ -1,6 +1,8 @@
 {% extends "blog/padre.html" %}
 
+
 {% load static %}
+
 
 {% block header %}   
     <header class="masthead" id="ini">
@@ -8,7 +10,7 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
-                        <h1 class="mb-5">INICIO</h1>
+                        <h1 class="mb-5">FoodReviewers</h1>
                         <span class="subheading"></span>
                     </div>
                 </div>
@@ -25,23 +27,42 @@
 
 {% block contenido %}
 
-<h2>{{ mensaje }}</h2>
+    <div class="contenedorInicio">
 
-<h1>FoodReviewers es...</h1>
-<p>Un lugar donde vas a poder dejar tus opiniones de lugares de comida a los que hayas ido, 
-    contandole a los demas miembros de la comunidad tus experiencias, ya sean buenas o malas.
-        Tambien vas a poder inspirarte y conocer lugares nuevos para visitar.
-</p>
+        <h2 class="mensaje">{{ mensaje }}</h2>
+
+        <h2 class="TituloInicio">FoodReviewers es...</h2>
+        <p class="textoSobre">Un Sitio donde podes dejar tus opiniones de lugares de comida a los que hayas ido, 
+            contandole a los demas miembros de la comunidad tus experiencias, ya sean buenas o malas.
+                Tambien vas a poder inspirarte y conocer lugares nuevos para visitar.
+        </p>
+
+    </div>
+
+<div class="contenedor-imagenes">
+        <img src="{% static 'blog/assets/img/inicio3.jpg' %}" alt="la milanga de ed sheeran">
+        <img src="{% static 'blog/assets/img/inicio1.jpg' %}" alt="la milanga de ed sheeran">
+        <img src="{% static 'blog/assets/img/inicio2.jpg' %}" alt="la milanga de ed sheeran">
+</div>"
+
+
+<div class="contenedorInicio">
+
+    <h2 class="mensaje">{{ mensaje }}</h2>
+
+    <h2 class="TituloInicio">Como hacer una buena reseña</h2>
+    <p class="textoSobre">Para lograr una reseña que aporte valor a la comunidad y sirva d ereferencia a los demas Food Reviewers, 
+        Te recomendamos que incluyas los siguientes items:
+
+    </p>
+    <ul>
+        <li><p>Calidad de la comida</p></li>
+        <li><p>Calidad de la atención</p></li>
+        <li><p>Que te gustó, que no te gustó</p></li>
+        <li><p>Los precios del lugar</p></li>
+        <li><p>Como fue tu experiencia, con quien fuiste...etc</p></li>
+    </ul>
+</div>
+
+
 {% endblock %}
-
-
-En el Blog de comida ComerconArte podréis encontrar nuestras últimas experiencias en los restaurantes más populares. Otros temas que también estarán en este blog son platos y recetas sabrosas y saludables. Os ofrecemos la posibilidad de degustar leyendo nuestros post y conocer algunas recetas, trucos y consejos. ComerconArte brinda una visión de la comida distinta, divertida, creativa y llena de sorpresas. Todos nuestras paradas están repletas de sentidos y nuestros posts os proporcionarán los recursos necesarios para poder degustar e imaginar cada plato.
-
-ComerconArte también cuenta con su rinconcito saludable. Un espacio ideal repleto de contenido enfocado a las personas que les gusta comer sano, rico y con mucho sabor. En él te ofreceremos todo tipo de noticias, alimentos, recetas y lugares donde conocer y saborear platos llenos de sabor. Recetas elaboradas con alimentos vegetales o sin lactosa.
-
-Vamos a ser una gran comunidad 😉
-En ComerconArte todos somos importantes, todos podemos contribuir y contar nuestras experiencias sobre el arte de comer. Si quieres que propongamos algún tema o tienes alguna duda y podemos ayudarte, no lo dudes. Cuéntanos sobre qué quieres leer e intentaremos ofrecerte la información más actual y veraz. Somos la fuente de información perfecta para empezar a disfrutar comiendo.
-
-LA GUÍA DE 2022 PARA RESTAURANTES, RECETAS Y ALIMENTOS, Y LOS MEJORES ELECTRODOMÉSTICOS EN OFERTA
-Queremos ser la «Guía perfecta». Un lugar donde detenerse a leer los mejores platos procedentes de los restaurantes más destacados de la zona de Levante, y eventos gastronómicos o relacionados con esta. Además de disponer de un espacio destinado a la comida saludable, en el que hablaremos de alimentos vegetales y saludables, junto con recetas fáciles de elaborar. Todo esto con noticias y temas de actualidad.
-

@@ -1,0 +1,31 @@
+
+.contenedorInicio{
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    box-shadow: 0 3px 8px 2px;
+}
+
+.TituloInicio{
+    margin: 20px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.textoSobre{
+    margin: 45px;
+    box-shadow: 15px  ;
+}
+
+.mensaje{
+    text-align: center;
+}
+
+.contenedor-imagenes > img{
+    height: 300px;
+    margin: 30px;
+    box-shadow: darkcyan 10px;
+    border-radius: 30px;
+}
