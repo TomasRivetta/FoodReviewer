@@ -31,7 +31,7 @@ def login_request(request):
             user = authenticate(username=usuario,password=clave)
             if user is not None:
                 login(request, user)
-                return render(request, "blog/inicio.html", {'mensaje':f'Bienvenido { user } a FoodReviewers', 'imagen':obtenerAvatar(request)})
+                return render(request, "blog/inicio.html", {'mensaje':f'Bienvenid@ { user } a FoodReviewers', 'imagen':obtenerAvatar(request)})
             else:
                 return render(request, "blog/login.html", {'form':form, "mensaje":"Usuario o contraseña incorrectos"})
         else:
@@ -50,13 +50,11 @@ def register(request):
             username = form.cleaned_data["username"]
 
             form.save()
-            return render(request, 'blog/inicio.html', {'mensaje':f"Usuario { username } creado"})
+            return render(request, 'blog/inicio.html', {'mensaje':f"Usuari@ { username } creado con exito"})
     else:
         form = UserRegisterForm()
     return render(request, 'blog/register.html', {'form':form,"imagen":obtenerAvatar(request)})
 
-
-######## LOGOUT ##########
 
 ######## EDITAR USER ##########
 @login_required

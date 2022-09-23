@@ -1,6 +1,6 @@
 
 .contenedorInicio{
-    background-color: #FFFFFF;
+    background-color: rgba(250,240,230,0.6);
     border-radius: 20px;
     margin-left: 100px;
     margin-right: 100px;
@@ -23,9 +23,14 @@
     text-align: center;
 }
 
-.contenedor-imagenes > img{
+.contenedor-imagenes img {
+    position: relative;
+    width: 400px;
     height: 300px;
-    margin: 30px;
+    margin: 124px;
     box-shadow: darkcyan 10px;
     border-radius: 30px;
+    margin-top:45px;
 }
+
+
