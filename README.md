@@ -27,3 +27,4 @@ Un Sitio donde podes dejar tus opiniones de lugares de comida a los que hayas id
 * Django
 * HTML
 * CSS
+* JavaScript
