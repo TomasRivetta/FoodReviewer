@@ -28,3 +28,12 @@
     <h1 style="text-align:center;">Sesión cerrada con éxito!</h1>
 
 {% endblock %}
+
+
+def obtenerAvatar(request):
+    lista = Avatar.objects.filter(user=request.user.id)
+    if len(lista)!=0:
+        imagen=lista[0].imagen.url
+    else:
+        imagen= ""
+    return imagen

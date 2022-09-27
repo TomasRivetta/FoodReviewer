@@ -160,17 +160,3 @@ def eliminarPublicacion(request, pk):
     posteos = Posteo.objects.get(id=pk);
     posteos.delete()
     return redirect("misPublicaciones")
-
-
-
-'''
-def login_manual(request):
-    if request.method == "POST":
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            return render(request,'blog/inicio.html',{'form':form})
-    else:
-        form = LoginForm()
-    return render(request, "blog/login.html", {'form':form})
-
-'''       

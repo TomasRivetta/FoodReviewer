@@ -79,3 +79,6 @@ class PosteoForm(forms.Form):
     class Meta:
         model = Posteo
         fields = '__all__' 
+
+
+

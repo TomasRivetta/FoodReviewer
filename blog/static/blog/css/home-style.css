@@ -1,6 +1,7 @@
 
 .contenedorInicio{
-    background-color: rgba(250,240,230,0.6);
+    margin-top: 100px;
+    background-color: rgba(250,240,230,0.1);
     border-radius: 20px;
     margin-left: 100px;
     margin-right: 100px;

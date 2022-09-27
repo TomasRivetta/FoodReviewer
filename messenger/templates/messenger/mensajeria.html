@@ -1,0 +1,65 @@
+{% extends "blog/padre.html" %} 
+{% load static %} 
+{% block header %}
+
+<header class="masthead" id="fondoInicioMensajeria">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1 class="mb-5">Mensajeria</h1>
+          <span class="subheading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  #fondoInicioMensajeria {
+    background-image: url("{% static '/blog/assets/img/fondoMensajeria.jpg' %}");
+  }
+</style>
+
+{% endblock %} 
+
+{% block contenido %}
+
+  <div class="textoSeccionMisMensajes">
+
+    <p><i>Ingrese aqui para ver sus mensajes.</i></p>
+    <a href="{% url 'mis_mensajes' %}" class="btn btn-outline-success">Mis Mensajes</a>
+
+  </div>
+  
+  <hr>
+  
+  <div class="col-md-8 textoSeccionMensajes">
+
+    <p><i>O bien, seleccione un usuario de la siguiente lista para comenzar una conversacion.</i></p>
+  
+  </div>
+
+  <div class="usuarios">
+
+    {% for usuario in usuarios %}
+    <h2>{{ usuario.username }}</h2>
+    <a href="{% url 'enviar_mensaje' %}" class="btn btn-outline-success">Enviar Mensaje</a>
+    <hr>
+    {% endfor %}
+    
+  </div>
+  <style>
+
+    .textoSeccionMisMensajes{
+      text-align: center;
+    }
+    .textoSeccionMensajes{
+      text-align: center;
+      margin-left: 18%;
+    }
+    .usuarios{
+      text-align: center;
+    }
+  </style>
+  {% endblock %}

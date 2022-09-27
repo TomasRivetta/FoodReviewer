@@ -5,12 +5,13 @@
 
 {% block header %}
 
-<header class="masthead" id="borde">
+<header class="masthead" id="fondoVerMensaje">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1 class="mb-5" style="font-size:60px;">{{ posteo.titulo }}..</h1>
+                    <h1 class="mb-5" style="font-size:60px;">{{ mensaje.titulo }}..</h1>
+                    <h2 class="mb-5" style="font-size:60px;">{{ mensaje.titulo }}..</h2>
                 </div>
             </div>
         </div>
@@ -18,31 +19,24 @@
 </header>
 
 <style>
-    #borde{
-        background-image: url("{% static '/blog/assets/img/fondoVerPublicacion.jpg' %}");
+    #fondoVerMensaje{
+        background-image: url("{% static '/blog/assets/img/fondoMensajeria.jpg' %}");
     }
 </style>
 
 {% endblock %}
 
 {% block contenido %}
-    <div class="contenedorInicio">
-
+    <div class="contenedorPrincipalPublicacion">
         <section class="mb-4">
-            <div>
-                {% if posteo.imagen %}
-                    <img src="{{ posteo.imagen.url | safe }}" class="img-fluid imagenPosteo">
-                {% endif %}
-            </div>
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="text-center posteoDescripcion"> {{ posteo.descripcion }}</h2>
-                        <p class=""> {{ posteo.contenido | safe }}</p>
-                        <p class=""> <em>Escrito por <strong><i>{{ posteo.autor }}</i></strong>, el
-                        {{ posteo.fecha_creacion }}</em></p>
+                        <h2 class="text-center posteoDescripcion"> {{ Mensaje.emisor }}</h2>
+                        <p class=""><em>Asunto: {{ Mensaje.asunto | safe }} </em></p>
+                        <p class="text-center posteoDescripcion"> {{ Mensaje.contenido }}<p>
                     </div>  
-    
+                    
                 </div>
             </div>
         </section>
@@ -70,4 +64,7 @@
             margin-left: 30%;
         }
     </style>
+
+
+
 {% endblock %}

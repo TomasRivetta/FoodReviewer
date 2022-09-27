@@ -25,6 +25,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('', inicio ),
     path('ckeditor/',include('ckeditor_uploader.urls')),
+    path('messenger/',include('messenger.urls')),
 ]
 
 

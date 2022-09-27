@@ -1,0 +1,50 @@
+{% extends "blog/padre.html" %}
+
+{% load static %}
+
+
+{% block header %}
+<header class="masthead" id="fondoMisMensajes">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 class="mb-5">Mis Mensajes</h1>
+                    <span class="subheading">Aqui podras ver todos los mensajes recibidos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+    #fondoMisMensajes{
+        background-image: url("{% static '/blog/assets/img/fondoMensajeria.jpg' %}");
+    }
+</style>
+{% endblock %}
+
+
+{% block contenido %}
+
+    {% if mensajes %}
+
+        {% for mensaje in mensajes %}
+
+            {{ mensaje.emisor }}
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2 class="noRecibiMensaje">No recibiste ningun mensaje😢</h2>
+
+    {% endif %}
+
+    <style>
+        .noRecibiMensaje{
+            text-align: center;
+        }
+    </style>
+
+{% endblock %}

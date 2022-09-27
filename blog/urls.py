@@ -18,5 +18,5 @@ urlpatterns = [
     path('subir_post/', subir_post, name ='subir_post'),
     path('blog/', blog,name="blog"),
     path("",inicio,name="inicio"),
-    
+
 ]
