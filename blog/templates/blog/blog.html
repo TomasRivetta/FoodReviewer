@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block header %}   
-    <header class="masthead" id="blog">
+    <header class="masthead" id="ini">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -17,7 +17,7 @@
     </header>
 
     <style>
-        #blog{
+        #ini{
             background-image: url("{% static '/blog/assets/img/inicio.jpg' %}");
         }
     </style>
@@ -26,7 +26,6 @@
 
 {% block contenido %}
 {% if posteos %}
-    
 <div class="contenedorInicio">
 
     <div class="row" style="margin:20px;">
@@ -57,6 +56,27 @@
 
 </div>
 
+<style>
+
+    .contenedorBlog{
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding: 20px;
+        box-shadow: 0 3px 8px 2px;
+    }
+
+    .mensajePrincipal,.mensajeSecundario{
+        text-align: center;
+        background-color: rgb(192, 166, 18);
+        border-radius: 20px;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding: 20px;
+        box-shadow: 0 3px 8px 2px;
+    }
+</style>
 
 
 
