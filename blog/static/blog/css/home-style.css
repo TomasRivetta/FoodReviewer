@@ -42,3 +42,7 @@
 }
 
 
+.contenedor_mensaje{
+    margin: 20px;
+    border-bottom: 3px solid gray;
+}

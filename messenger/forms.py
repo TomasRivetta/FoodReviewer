@@ -5,11 +5,10 @@ from django.contrib.auth import authenticate
 from django.forms import ModelForm
 from .models import Mensaje
 
-
 class MensajeForm(forms.Form):
-    receptor = forms.CharField()
+    receptor = forms.CharField(max_length=15)
     asunto = forms.CharField()
-    mensaje = forms.Textarea()
+    mensaje = forms.CharField()
 
     class Meta:
         model = Mensaje

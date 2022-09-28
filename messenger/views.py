@@ -5,6 +5,10 @@ from .forms import MensajeForm
 from django.contrib.auth.models import User
 from django.views.generic.detail import DetailView
 from blog.views import obtenerAvatar
+from datetime import date
+import datetime 
+from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -12,23 +16,25 @@ from blog.views import obtenerAvatar
 def mensajeria(request):
     usuarios = User.objects.all()
     print(usuarios)
-    return render(request,"messenger/mensajeria.html", {"usuarios":usuarios})
+    return render(request,"messenger/mensajeria.html", {"usuarios":usuarios,"imagen":obtenerAvatar(request)})
 
     
 @login_required
 def enviar_mensaje(request):
-    
+    Emisor = request.user
     if request.method  == "POST":
         form = MensajeForm(request.POST,request.FILES) #ese request.files dudoso
         if form.is_valid():
 
             informacion = form.cleaned_data
 
-            mensaje = Mensaje(emisor=request.user,receptor=informacion['receptor'],asunto=informacion['asunto'],mensaje=informacion['mensaje'],creadoFecha=['fecha'])
+            mensaje = Mensaje(emisor=Emisor,receptor=informacion['receptor'],asunto=informacion['asunto'],content=informacion['mensaje'])
 
             mensaje.save()
 
-            return redirect('blog')
+            mensajes = Mensaje.objects.filter(receptor=request.user)
+
+            return render(request,'messenger/misMensajes.html',{"mensajee":"Se envio el mensaje con exito","mensajes":mensajes,"imagen":obtenerAvatar(request)})
     else:
         form = MensajeForm() 
         return render(request,'messenger/enviar_mensaje.html', {'form':form}) 
@@ -36,11 +42,5 @@ def enviar_mensaje(request):
 
 @login_required
 def misMensajes(request):
-    mensajes = Mensaje.objects.filter(receptor=request.user).order_by('-id')
+    mensajes = Mensaje.objects.filter(receptor=request.user)
     return render(request, 'messenger/misMensajes.html',{"mensajes":mensajes,"imagen":obtenerAvatar(request)})
-
-@login_required
-class verMensaje(DetailView):
-
-    model = Mensaje
-    template_name = "messenger/verMensaje.html"  

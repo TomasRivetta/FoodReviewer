@@ -24,22 +24,23 @@ Un Sitio donde podes dejar tus opiniones de lugares de comida a los que hayas id
 
 * Home
 
-    - En esta sección vamos a encontrar una breve explicación de lo que trata el proyecto y en la barra de navegación vamos a encontrar un panel que nos permitirá navegar valga la redundancia por las distitas partes del sitio. 
+    - En esta vista vamos a encontrar una breve explicación de lo que trata el proyecto y en la barra de navegación vamos a encontrar un panel que nos permitirá navegar valga la redundancia por las distitas partes del sitio. 
 
 * Blog
 
-    - En esta sección vamos a encontrar las publicaciones que realicen los usuarios de FoodReviewers, con la posibilidad de podes acceder a estos para poder leerlos completamente la información que contienen.
+    - En esta vista vamos a encontrar las publicaciones que realicen los usuarios de FoodReviewers, con la posibilidad de podes acceder a estos para poder leerlos completamente la información que contienen.
 
 * Posteos
     
     - En caso de no estar logueado:
-        -- Al momento de presionar 'Mis posteos' o 'Crear posteos', instantáneamente esto te llevará a la sección de 'inicio de sesión' en ambos casos, en caso de no poseer cuenta, en la misma sección de 'inicio de sesion' existe un botón para registrarse 
+
+        -- Al momento de presionar 'Mis posteos' o 'Crear posteos', instantáneamente esto te llevará a la vista de 'inicio de sesión' en ambos casos, en caso de no poseer cuenta, en la misma vista de 'inicio de sesion' existe un botón para registrarse 
 
     - En caso de estar logueado:
         
-        -- Mis posteos: En esta sección vas a poder encontrar todas las publicaciones hechas por el usuario logueado, con las opciones en cada publicación de poder verla, editarla y eliminarla.
+        -- Mis posteos: En esta vista vas a poder encontrar todas las publicaciones hechas por el usuario logueado, con las opciones en cada publicación de poder verla, editarla y eliminarla.
         
-        -- Crear posteos: En esta sección vas a encontrar un formulario que te va a permitir crear un posteo nuevo, siempre y cuando estes registrado y logeado en el sitio. Podrás ponerle un título, una descripción, un parrafo de contenido y una imagen.
+        -- Crear posteos: En esta vista vas a encontrar un formulario que te va a permitir crear un posteo nuevo, siempre y cuando estes registrado y logeado en el sitio. Podrás ponerle un título, una descripción, un parrafo de contenido y una imagen.
 
 * Ingresar
 
@@ -57,7 +58,7 @@ Un Sitio donde podes dejar tus opiniones de lugares de comida a los que hayas id
 
 * Acerca de
 
-    - Vas a ver nuestros nombres y conocer un poco mas a los creadores.
+    - Vas a poder conocer un poco mas a los creadores.
 
 
 <hr>

@@ -27,13 +27,21 @@
 
 {% block contenido %}
 
+    <p class="mensaje">{{ mensajee }}</p>
+
+    <a href="{% url 'list' %}" class="btn btn-outline-success">Inicio Mensajeria</a>
     {% if mensajes %}
-
+        <div class="contenedor_mensaje">
         {% for mensaje in mensajes %}
+            <p> Emisor: {{ mensaje.emisor }}</p>
+            <p> Asunto: {{ mensaje.asunto }}</p>
+            <p>Mensaje: {{ mensaje.content }}</p>
+            <p>{{ mensaje.creadoFecha}}</p>
 
-            {{ mensaje.emisor }}
-
+            <a href="{% url 'enviar_mensaje' %}" class="btn btn-outline-success">Responder</a>
+            <hr>
         {% endfor %}
+        </div>
 
     {% else %}
 
@@ -42,6 +50,11 @@
     {% endif %}
 
     <style>
+
+        .mensaje{
+            text-align: center;
+        }
+
         .noRecibiMensaje{
             text-align: center;
         }

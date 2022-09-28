@@ -2,7 +2,6 @@ from django.urls import path
 from blog.views import *
 from django.contrib.auth.views import LogoutView
 
-
 urlpatterns = [
 
     path('acerca-de/', nosotros, name="acerca-de"),
@@ -18,5 +17,5 @@ urlpatterns = [
     path('subir_post/', subir_post, name ='subir_post'),
     path('blog/', blog,name="blog"),
     path("",inicio,name="inicio"),
-
+    
 ]
